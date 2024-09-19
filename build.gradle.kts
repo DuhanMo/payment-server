@@ -40,6 +40,9 @@ dependencies {
     implementation("io.micrometer:context-propagation:1.1.1")
     implementation("org.springframework.boot:spring-boot-starter-aop")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-slf4j:1.8.1")
+
+    // validation
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 }
 
 kotlin {

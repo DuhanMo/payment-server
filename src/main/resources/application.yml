@@ -22,3 +22,9 @@ logging:
     org.springframework.r2dbc.connection.init: debug
     org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler: off
     org.springframework.web.HttpLogging: off
+server:
+  error:
+    include-exception: on
+    include-message: on_param
+    include-stacktrace: on_param
+    include-binding-errors: on_param
