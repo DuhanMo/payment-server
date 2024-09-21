@@ -14,6 +14,7 @@ import org.duhan.webfluxcoroutinepaymentserver.exception.InvalidParameter
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 private val logger = KotlinLogging.logger {}
@@ -21,6 +22,7 @@ private val logger = KotlinLogging.logger {}
 @RestController
 class SampleController(
     private val sampleService: SampleService,
+    private val externalApi: ExternalApi,
 ) {
     @GetMapping("/test/samples")
     suspend fun sample(): Flow<Sample> {
@@ -36,6 +38,13 @@ class SampleController(
         if (request.message == "error") {
             throw InvalidParameter(request, request::message, code = "custom code", message = "custom error")
         }
+    }
+
+    @GetMapping("/test/circuit")
+    suspend fun circuit(
+        @RequestParam error: String,
+    ): String {
+        return externalApi.testCircuitBreaker(error)
     }
 }
 

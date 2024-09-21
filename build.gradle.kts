@@ -43,6 +43,10 @@ dependencies {
 
     // validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    // circuit breaker & late limiter
+    implementation("io.github.resilience4j:resilience4j-all:2.2.0")
+    implementation("io.github.resilience4j:resilience4j-kotlin:2.2.0")
 }
 
 kotlin {

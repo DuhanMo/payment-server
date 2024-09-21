@@ -28,3 +28,5 @@ server:
     include-message: on_param
     include-stacktrace: on_param
     include-binding-errors: on_param
+api:
+  externalUrl: http://localhost:8081
