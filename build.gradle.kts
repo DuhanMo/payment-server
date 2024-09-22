@@ -47,6 +47,14 @@ dependencies {
     // circuit breaker & late limiter
     implementation("io.github.resilience4j:resilience4j-all:2.2.0")
     implementation("io.github.resilience4j:resilience4j-kotlin:2.2.0")
+
+    // reactive redis
+    implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+
+    // kotest
+    testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
+    testImplementation("io.kotest:kotest-assertions-core:5.9.1")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.3.0")
 }
 
 kotlin {

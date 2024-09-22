@@ -6,7 +6,6 @@ import org.duhan.webfluxcoroutinepaymentserver.common.validator.DateString
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.r2dbc.core.flow
 import org.springframework.stereotype.Service
-import java.io.Serializable
 import java.time.LocalDateTime
 
 @Service
