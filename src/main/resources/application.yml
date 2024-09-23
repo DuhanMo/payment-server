@@ -17,7 +17,7 @@ spring:
       data-locations: classpath:db-init/test.sql
 logging:
   level:
-    org.duhan.webfluxcoroutinepaymentserver: debug
+    org.duhan: debug
     org.springframework.r2dbc.core: debug
     org.springframework.r2dbc.connection.init: debug
     org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler: off
@@ -30,3 +30,13 @@ server:
     include-binding-errors: on_param
 api:
   externalUrl: http://localhost:8081
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  r2dbc:
+    url: r2dbc:pool:h2:mem://localhost/sample
+  sql:
+    init:
+      mode: embedded
