@@ -25,20 +25,24 @@ import org.springframework.data.redis.core.ReactiveListOperations
 import org.springframework.data.redis.core.ReactiveRedisTemplate
 import org.springframework.data.redis.core.ReactiveZSetOperations
 import org.springframework.test.context.ActiveProfiles
+import org.springframework.test.context.DynamicPropertyRegistry
+import org.springframework.test.context.DynamicPropertySource
+import org.testcontainers.containers.GenericContainer
+import org.testcontainers.utility.DockerImageName
 import java.time.Duration
 import java.util.Date
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.toJavaDuration
 
-private const val KEY = "key"
+const val KEY = "key"
 private val logger = KotlinLogging.logger {}
 
 @SpringBootTest
 @ActiveProfiles("test")
 class RedisTemplateTest(
     private val template: ReactiveRedisTemplate<Any, Any>,
-) : StringSpec({
+) : WithRedisContainer, StringSpec({
 
         afterTest {
             template.delete(KEY).awaitSingle()
@@ -207,4 +211,23 @@ suspend fun ReactiveListOperations<Any, Any>.all(key: Any): List<Any> {
 
 suspend fun ReactiveZSetOperations<Any, Any>.all(key: Any): List<Any> {
     return this.range(key, Range.closed(0, -1)).asFlow().toList()
+}
+
+interface WithRedisContainer {
+    companion object {
+        private val container =
+            GenericContainer(DockerImageName.parse("redis")).apply {
+                addExposedPorts(6379)
+                start()
+            }
+
+        @DynamicPropertySource
+        @JvmStatic
+        fun setProperty(registry: DynamicPropertyRegistry) {
+            logger.debug { "redis mapped port: ${container.getMappedPort(6379)}" }
+            registry.add("spring.data.redis.port") {
+                "${container.getMappedPort(6379)}"
+            }
+        }
+    }
 }
