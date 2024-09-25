@@ -1,17 +1,33 @@
 package org.duhan.webfluxcoroutinepaymentserver.article
 
 import kotlinx.coroutines.flow.Flow
+import org.duhan.webfluxcoroutinepaymentserver.common.config.CacheKey
+import org.duhan.webfluxcoroutinepaymentserver.common.config.CacheManager
+import org.duhan.webfluxcoroutinepaymentserver.common.config.CacheManager.Companion.TTL
 import org.duhan.webfluxcoroutinepaymentserver.common.extension.toLocalDate
 import org.duhan.webfluxcoroutinepaymentserver.common.validator.DateString
 import org.springframework.r2dbc.core.DatabaseClient
 import org.springframework.r2dbc.core.flow
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
+import kotlin.time.Duration.Companion.seconds
 
 @Service
 class ArticleService(
     private val dbClient: DatabaseClient,
+    private val cache: CacheManager,
+    private val repository: ArticleRepository,
 ) {
+    init {
+        TTL["/article/find"] = 10.seconds
+    }
+
+    suspend fun find(id: Long): Article {
+        val key = CacheKey("/article/find", id)
+        return cache.get(key) { repository.findById(id) }
+            ?: throw NoSuchElementException()
+    }
+
     suspend fun findAll(request: QueryArticle): Flow<Article> {
         val params = HashMap<String, Any>()
         var sql =
@@ -61,6 +77,30 @@ class ArticleService(
             }
         }.flow()
     }
+
+    suspend fun update(
+        id: Long,
+        request: ReqUpdate,
+    ): Article {
+        val article = repository.findById(id) ?: throw NoSuchElementException()
+        return repository.save(
+            article.apply {
+                request.title?.let { title = it }
+                request.body?.let { body = it }
+                request.authorId?.let { authorId = it }
+            },
+        ).also {
+            val key = CacheKey("/article/get", id)
+            cache.delete(key)
+        }
+    }
+
+    suspend fun delete(id: Long) {
+        return repository.deleteById(id).also {
+            val key = CacheKey("/article/get", id)
+            cache.delete(key)
+        }
+    }
 }
 
 fun <T> T?.query(f: (T) -> String): String {
@@ -80,4 +120,10 @@ data class QueryArticle(
     val from: String?,
     @DateString
     val to: String?,
+)
+
+data class ReqUpdate(
+    val title: String? = null,
+    val body: String? = null,
+    val authorId: Long? = null,
 )
