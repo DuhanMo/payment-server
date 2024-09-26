@@ -1,7 +1,7 @@
 CREATE TABLE samples
 (
-    id    BIGINT AUTO_INCREMENT PRIMARY KEY,
-    name  VARCHAR(255) NOT NULL
+    id   BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE articles
@@ -10,6 +10,15 @@ CREATE TABLE articles
     title      VARCHAR(200),
     body       VARCHAR(2000),
     author_id  BIGINT,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE accounts
+(
+    id         BIGINT AUTO_INCREMENT PRIMARY  KEY,
+    amount     BIGINT,
+    version    BIGINT,
     created_at TIMESTAMP,
     updated_at TIMESTAMP
 );

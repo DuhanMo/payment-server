@@ -26,3 +26,6 @@ VALUES ('title 01', 'blabla 01', 1001, '2024-01-01', '2024-01-01'),
        ('title 18', 'blabla 18', 1018, '2024-01-18', '2024-01-18'),
        ('title 19', 'blabla 19', 1019, '2024-01-19', '2024-01-19'),
        ('title 20', 'blabla 20', 1020, '2024-01-20', '2024-01-20');
+
+INSERT INTO accounts (amount, version, created_at, updated_at)
+VALUES (0, 1,'2024-01-20', '2024-01-20');
