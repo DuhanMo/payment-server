@@ -1,44 +1,13 @@
 spring:
   profiles:
     active: local
----
-spring:
-  output:
-    ansi:
-      enabled: always
   r2dbc:
-    url: r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password:
-  sql:
-    init:
-      mode: always
-      schema-locations: classpath:db-init/schema.sql
-      data-locations: classpath:db-init/test.sql
-logging:
-  level:
-    org.duhan: debug
-    org.springframework.r2dbc.core: debug
-    org.springframework.r2dbc.connection.init: debug
-    org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler: off
-    org.springframework.web.HttpLogging: off
-    io.r2dbc: TRACE
-    org.springframework.data.r2dbc: TRACE
-server:
-  error:
-    include-exception: on
-    include-message: on_param
-    include-stacktrace: on_param
-    include-binding-errors: on_param
-api:
-  externalUrl: http://localhost:8081
----
-spring:
-  config:
-    activate:
-      on-profile: test
-  r2dbc:
-    url: r2dbc:pool:h2:mem://localhost/sample
-  sql:
-    init:
-      mode: embedded
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+    url: ${spring.liquibase.url}
+    user: ${spring.liquibase.user}
+    password: ${spring.liquibase.password}
