@@ -8,10 +8,177 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
               - column:
                   name: name
-                  type: VARCHAR
+                  type: varchar
+  - changeSet:
+      id: 2
+      author: Duhan
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 3
+      author: Duhan
+      changes:
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar
+              - column:
+                  name: amount
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: pg_order_id
+                  type: varchar
+              - column:
+                  name: pg_key
+                  type: varchar
+              - column:
+                  name: pg_status
+                  type: varchar
+              - column:
+                  name: pg_retry_count
+                  type: int
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 4
+      author: Duhan
+      changes:
+        - createTable:
+            tableName: order_product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_unique_order_product
+            tableName: order_product
+            unique: true
+            columns:
+              - column:
+                  name: order_id
+              - column:
+                  name: product_id
+  - changeSet:
+      id: 5
+      author: Duhan
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "apple"
+              - column:
+                  name: price
+                  value: "1000"
+              - column:
+                  name: created_at
+                  valueDate: "2024-10-10T09:00:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2024-10-10T09:00:00"
+        - insert:
+            tableName: product
+            columns:
+              - column:
+                  name: name
+                  value: "banana"
+              - column:
+                  name: price
+                  value: "500"
+              - column:
+                  name: created_at
+                  valueDate: "2024-10-10T09:00:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2024-10-10T09:00:00"
