@@ -14,8 +14,8 @@ class SampleService(
     suspend fun create(name: String) {
         repository.save(
             Sample(
-                name = name
-            )
+                name = name,
+            ),
         )
     }
 }

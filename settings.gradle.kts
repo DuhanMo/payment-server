@@ -5,7 +5,6 @@ pluginManagement {
     val springBootVersion: String by settings
     val springDependencyManagementVersion: String by settings
     val ktlintVersion: String by settings
-    val kotestVersion: String by settings
 
     resolutionStrategy {
         eachPlugin {

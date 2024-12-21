@@ -16,7 +16,9 @@ class SampleController(
     suspend fun hello(): Flow<Sample> = service.findAll()
 
     @PostMapping
-    suspend fun create(@RequestBody request: CreateRequest) = service.create(request.name)
+    suspend fun create(
+        @RequestBody request: CreateRequest,
+    ) = service.create(request.name)
 }
 
 data class CreateRequest(

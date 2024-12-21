@@ -7,5 +7,5 @@ import org.springframework.data.relational.core.mapping.Table
 class Sample(
     @Id
     val id: Long? = null,
-    val name: String
+    val name: String,
 )
