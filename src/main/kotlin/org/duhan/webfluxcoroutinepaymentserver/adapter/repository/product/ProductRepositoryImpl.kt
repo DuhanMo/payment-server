@@ -12,6 +12,8 @@ class ProductRepositoryImpl(
 ) : ProductRepository {
     override suspend fun save(product: Product): Product = productCrudRepository.save(ProductEntity(product)).toModel()
 
+    override suspend fun findAll(): List<Product> = productCrudRepository.findAll().map { it.toModel() }.toList()
+
     override suspend fun findAllById(productIds: List<Long>): List<Product> =
         productCrudRepository.findAllById(productIds).map { it.toModel() }.toList()
 }

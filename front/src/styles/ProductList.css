@@ -1,0 +1,17 @@
+.product-list {
+    margin-bottom: 20px;
+}
+
+.product-list h2 {
+    font-size: 1.5em;
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

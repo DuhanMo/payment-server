@@ -26,5 +26,7 @@ class FakeProductRepository : ProductRepository {
         }
     }
 
+    override suspend fun findAll(): List<Product> = data.toList()
+
     override suspend fun findAllById(productIds: List<Long>): List<Product> = data.filter { it.id in productIds }
 }
