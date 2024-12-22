@@ -20,7 +20,7 @@ databaseChangeLog:
       author: Duhan
       changes:
         - createTable:
-            tableName: product
+            tableName: products
             columns:
               - column:
                   name: id
@@ -53,7 +53,7 @@ databaseChangeLog:
       author: Duhan
       changes:
         - createTable:
-            tableName: order
+            tableName: orders
             columns:
               - column:
                   name: id
@@ -100,8 +100,42 @@ databaseChangeLog:
       id: 4
       author: Duhan
       changes:
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: name
+                  value: "apple"
+              - column:
+                  name: price
+                  value: "1000"
+              - column:
+                  name: created_at
+                  valueDate: "2024-10-10T09:00:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2024-10-10T09:00:00"
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: name
+                  value: "banana"
+              - column:
+                  name: price
+                  value: "500"
+              - column:
+                  name: created_at
+                  valueDate: "2024-10-10T09:00:00"
+              - column:
+                  name: updated_at
+                  valueDate: "2024-10-10T09:00:00"
+  - changeSet:
+      id: 5
+      author: Duhan
+      changes:
         - createTable:
-            tableName: order_product
+            tableName: order_products
             columns:
               - column:
                   name: id
@@ -140,45 +174,11 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - createIndex:
-            indexName: idx_unique_order_product
-            tableName: order_product
+            indexName: idx_unique_order_products
+            tableName: order_products
             unique: true
             columns:
               - column:
                   name: order_id
               - column:
                   name: product_id
-  - changeSet:
-      id: 5
-      author: Duhan
-      changes:
-        - insert:
-            tableName: product
-            columns:
-              - column:
-                  name: name
-                  value: "apple"
-              - column:
-                  name: price
-                  value: "1000"
-              - column:
-                  name: created_at
-                  valueDate: "2024-10-10T09:00:00"
-              - column:
-                  name: updated_at
-                  valueDate: "2024-10-10T09:00:00"
-        - insert:
-            tableName: product
-            columns:
-              - column:
-                  name: name
-                  value: "banana"
-              - column:
-                  name: price
-                  value: "500"
-              - column:
-                  name: created_at
-                  valueDate: "2024-10-10T09:00:00"
-              - column:
-                  name: updated_at
-                  valueDate: "2024-10-10T09:00:00"

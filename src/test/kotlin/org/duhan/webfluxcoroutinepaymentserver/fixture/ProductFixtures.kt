@@ -6,7 +6,7 @@ import java.time.LocalDateTime.now
 fun createProduct(
     id: Long? = null,
     name: String = "상품1",
-    price: Int = 100,
+    price: Long = 100,
 ) = Product(
     id = id,
     name = name,

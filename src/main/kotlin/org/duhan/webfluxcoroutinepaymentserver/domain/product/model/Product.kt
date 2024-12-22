@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 data class Product(
     val id: Long? = null,
     val name: String,
-    val price: Int,
+    val price: Long,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
 )

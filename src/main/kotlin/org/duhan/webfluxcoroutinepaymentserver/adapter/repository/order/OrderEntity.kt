@@ -2,14 +2,16 @@ package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.order
 
 import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.Order
 import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus
+import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("order")
+@Table("orders")
 class OrderEntity(
+    @Id
     val id: Long?,
     val userId: Long,
-    val amount: Int,
+    val amount: Long,
     val description: String,
     val pgOrderId: String?,
     val pgKey: String?,

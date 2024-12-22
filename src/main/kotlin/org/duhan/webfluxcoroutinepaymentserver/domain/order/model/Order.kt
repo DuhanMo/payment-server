@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 data class Order(
     val id: Long? = null,
     val userId: Long,
-    val amount: Int,
+    val amount: Long,
     val description: String,
     val pgOrderId: String? = null,
     val pgKey: String? = null,
