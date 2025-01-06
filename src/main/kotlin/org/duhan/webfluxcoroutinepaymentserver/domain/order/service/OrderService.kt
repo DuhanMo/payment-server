@@ -8,6 +8,7 @@ import org.duhan.webfluxcoroutinepaymentserver.domain.product.port.ProductReposi
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime.now
+import java.util.UUID.randomUUID
 
 @Service
 class OrderService(
@@ -35,6 +36,7 @@ class OrderService(
                     userId = command.userId,
                     amount = amount,
                     description = description,
+                    pgOrderId = "${randomUUID()}".replace("-",""),
                     createdAt = now,
                     updatedAt = now,
                 ),
