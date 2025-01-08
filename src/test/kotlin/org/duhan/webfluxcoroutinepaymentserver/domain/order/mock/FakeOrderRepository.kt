@@ -30,4 +30,6 @@ class FakeOrderRepository : OrderRepository {
             return order
         }
     }
+
+    override suspend fun findByPgOrderId(pgOrderId: String): Order? = data.find { it.pgOrderId == pgOrderId }
 }

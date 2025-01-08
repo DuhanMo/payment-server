@@ -42,6 +42,9 @@ dependencies {
     // kotest
     testImplementation("io.kotest:kotest-runner-junit5:${property("kotestVersion")}")
     testImplementation("io.kotest:kotest-assertions-core:${property("kotestVersion")}")
+
+    // logging
+    implementation("io.github.microutils:kotlin-logging:3.0.5")
 }
 
 kotlin {

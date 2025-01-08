@@ -9,4 +9,6 @@ class OrderRepositoryImpl(
     private val orderCrudRepository: OrderCrudRepository,
 ) : OrderRepository {
     override suspend fun save(order: Order): Order = orderCrudRepository.save(OrderEntity(order)).toModel()
+
+    override suspend fun findByPgOrderId(pgOrderId: String): Order? = orderCrudRepository.findByPgOrderId(pgOrderId)?.toModel()
 }
