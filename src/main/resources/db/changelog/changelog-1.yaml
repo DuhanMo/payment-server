@@ -53,7 +53,7 @@ databaseChangeLog:
       author: Duhan
       changes:
         - createTable:
-            tableName: order
+            tableName: orders
             columns:
               - column:
                   name: id
