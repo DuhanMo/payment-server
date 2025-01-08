@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("products")
+@Table("product")
 class ProductEntity(
     @Id
     val id: Long?,
