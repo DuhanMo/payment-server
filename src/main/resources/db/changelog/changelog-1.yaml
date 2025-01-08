@@ -4,22 +4,6 @@ databaseChangeLog:
       author: Duhan
       changes:
         - createTable:
-            tableName: sample
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: name
-                  type: varchar
-  - changeSet:
-      id: 2
-      author: Duhan
-      changes:
-        - createTable:
             tableName: product
             columns:
               - column:
@@ -49,7 +33,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
   - changeSet:
-      id: 3
+      id: 2
       author: Duhan
       changes:
         - createTable:
@@ -100,7 +84,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
   - changeSet:
-      id: 4
+      id: 3
       author: Duhan
       changes:
         - insert:
@@ -134,7 +118,7 @@ databaseChangeLog:
                   name: updated_at
                   valueDate: "2024-10-10T09:00:00"
   - changeSet:
-      id: 5
+      id: 4
       author: Duhan
       changes:
         - createTable:
