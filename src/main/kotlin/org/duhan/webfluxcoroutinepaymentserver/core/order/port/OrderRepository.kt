@@ -1,6 +1,6 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.port
+package org.duhan.webfluxcoroutinepaymentserver.core.order.port
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.Order
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.Order
 
 suspend fun OrderRepository.getByPgOrderId(pgOrderId: String): Order =
     findByPgOrderId(pgOrderId)

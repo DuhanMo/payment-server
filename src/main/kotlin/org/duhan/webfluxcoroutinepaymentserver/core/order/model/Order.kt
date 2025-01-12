@@ -1,13 +1,13 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.model
+package org.duhan.webfluxcoroutinepaymentserver.core.order.model
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.AUTH_INVALID
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.AUTH_SUCCESS
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.CAPTURE_FAIL
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.CAPTURE_REQUEST
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.CAPTURE_RETRY
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.CAPTURE_SUCCESS
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus.CREATE
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.service.OrderConfirmCommand
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.AUTH_INVALID
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.AUTH_SUCCESS
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE_FAIL
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE_REQUEST
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE_RETRY
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE_SUCCESS
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CREATE
+import org.duhan.webfluxcoroutinepaymentserver.core.order.service.OrderConfirmCommand
 import java.time.LocalDateTime
 
 class Order(

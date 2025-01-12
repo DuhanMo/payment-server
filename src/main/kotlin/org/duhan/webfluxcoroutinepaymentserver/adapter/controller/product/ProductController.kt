@@ -1,7 +1,7 @@
 package org.duhan.webfluxcoroutinepaymentserver.adapter.controller.product
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.model.Product
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.service.ProductQueryService
+import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
+import org.duhan.webfluxcoroutinepaymentserver.core.product.service.ProductQueryService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

@@ -1,4 +1,4 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.product.model
+package org.duhan.webfluxcoroutinepaymentserver.core.product.model
 
 import java.time.LocalDateTime
 

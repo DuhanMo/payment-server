@@ -1,6 +1,6 @@
 package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.order
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.OrderProduct
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.OrderProduct
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime

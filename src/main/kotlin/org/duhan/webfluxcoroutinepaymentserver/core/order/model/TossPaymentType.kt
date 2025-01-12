@@ -1,4 +1,4 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.model
+package org.duhan.webfluxcoroutinepaymentserver.core.order.model
 
 enum class TossPaymentType {
     NORMAL,

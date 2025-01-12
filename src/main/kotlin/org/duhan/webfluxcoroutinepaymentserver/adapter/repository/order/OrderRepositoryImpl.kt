@@ -1,7 +1,7 @@
 package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.order
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.Order
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.port.OrderRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.Order
+import org.duhan.webfluxcoroutinepaymentserver.core.order.port.OrderRepository
 import org.springframework.stereotype.Repository
 
 @Repository

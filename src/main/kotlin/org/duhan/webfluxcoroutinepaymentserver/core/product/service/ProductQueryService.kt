@@ -1,7 +1,7 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.product.service
+package org.duhan.webfluxcoroutinepaymentserver.core.product.service
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.model.Product
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.port.ProductRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
+import org.duhan.webfluxcoroutinepaymentserver.core.product.port.ProductRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

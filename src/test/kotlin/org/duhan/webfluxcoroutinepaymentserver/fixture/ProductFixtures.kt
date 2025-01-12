@@ -1,6 +1,6 @@
 package org.duhan.webfluxcoroutinepaymentserver.fixture
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.model.Product
+import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
 import java.time.LocalDateTime.now
 
 fun createProduct(

@@ -2,8 +2,8 @@ package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.product
 
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.model.Product
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.port.ProductRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
+import org.duhan.webfluxcoroutinepaymentserver.core.product.port.ProductRepository
 import org.springframework.stereotype.Repository
 
 @Repository

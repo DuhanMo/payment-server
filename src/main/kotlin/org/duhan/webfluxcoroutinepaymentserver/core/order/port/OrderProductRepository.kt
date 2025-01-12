@@ -1,6 +1,6 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.port
+package org.duhan.webfluxcoroutinepaymentserver.core.order.port
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.OrderProduct
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.OrderProduct
 
 interface OrderProductRepository {
     suspend fun save(orderProduct: OrderProduct): OrderProduct

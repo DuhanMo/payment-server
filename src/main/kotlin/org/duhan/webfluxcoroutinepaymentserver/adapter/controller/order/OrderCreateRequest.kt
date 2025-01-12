@@ -1,7 +1,7 @@
 package org.duhan.webfluxcoroutinepaymentserver.adapter.controller.order
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.service.OrderCreateCommand
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.service.OrderCreateCommand.ProductQuantityCommand
+import org.duhan.webfluxcoroutinepaymentserver.core.order.service.OrderCreateCommand
+import org.duhan.webfluxcoroutinepaymentserver.core.order.service.OrderCreateCommand.ProductQuantityCommand
 
 data class OrderCreateRequest(
     val userId: Long,

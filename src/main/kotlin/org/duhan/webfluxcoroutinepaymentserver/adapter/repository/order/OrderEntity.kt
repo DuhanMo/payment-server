@@ -1,8 +1,8 @@
 package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.order
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.Order
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.PgStatus
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.model.TossPaymentType
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.Order
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus
+import org.duhan.webfluxcoroutinepaymentserver.core.order.model.TossPaymentType
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime

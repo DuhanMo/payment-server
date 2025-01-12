@@ -1,14 +1,14 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.service
+package org.duhan.webfluxcoroutinepaymentserver.core.order.service
 
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.collections.shouldContainAll
 import io.kotest.matchers.shouldBe
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.mock.FakeOrderProductRepository
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.mock.FakeOrderRepository
-import org.duhan.webfluxcoroutinepaymentserver.domain.order.service.OrderCreateCommand.ProductQuantityCommand
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.FakeProductRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.order.mock.FakeOrderProductRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.order.mock.FakeOrderRepository
+import org.duhan.webfluxcoroutinepaymentserver.core.order.service.OrderCreateCommand.ProductQuantityCommand
+import org.duhan.webfluxcoroutinepaymentserver.core.product.FakeProductRepository
 import org.duhan.webfluxcoroutinepaymentserver.fixture.createProduct
 
 class OrderServiceTest : BehaviorSpec({

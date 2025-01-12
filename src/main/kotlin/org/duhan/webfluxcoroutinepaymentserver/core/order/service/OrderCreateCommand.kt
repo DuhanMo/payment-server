@@ -1,4 +1,4 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.order.service
+package org.duhan.webfluxcoroutinepaymentserver.core.order.service
 
 data class OrderCreateCommand(
     val userId: Long,

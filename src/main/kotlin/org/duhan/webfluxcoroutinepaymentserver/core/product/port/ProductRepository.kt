@@ -1,6 +1,6 @@
-package org.duhan.webfluxcoroutinepaymentserver.domain.product.port
+package org.duhan.webfluxcoroutinepaymentserver.core.product.port
 
-import org.duhan.webfluxcoroutinepaymentserver.domain.product.model.Product
+import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
 
 interface ProductRepository {
     suspend fun save(product: Product): Product
