@@ -14,6 +14,6 @@ class ProductRepositoryImpl(
 
     override suspend fun findAll(): List<Product> = productCrudRepository.findAll().map { it.toModel() }.toList()
 
-    override suspend fun findAllById(productIds: List<Long>): List<Product> =
-        productCrudRepository.findAllById(productIds).map { it.toModel() }.toList()
+    override suspend fun findAllById(ids: List<Long>): List<Product> =
+        productCrudRepository.findAllById(ids).map { it.toModel() }.toList()
 }

@@ -45,6 +45,9 @@ dependencies {
 
     // logging
     implementation("io.github.microutils:kotlin-logging:3.0.5")
+
+    // mockk
+    testImplementation("io.mockk:mockk:${property("mockkVersion")}")
 }
 
 kotlin {

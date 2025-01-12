@@ -7,5 +7,5 @@ interface ProductRepository {
 
     suspend fun findAll(): List<Product>
 
-    suspend fun findAllById(productIds: List<Long>): List<Product>
+    suspend fun findAllById(ids: List<Long>): List<Product>
 }
