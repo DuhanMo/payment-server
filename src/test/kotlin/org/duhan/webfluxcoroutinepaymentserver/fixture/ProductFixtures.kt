@@ -1,7 +1,7 @@
 package org.duhan.webfluxcoroutinepaymentserver.fixture
 
 import org.duhan.webfluxcoroutinepaymentserver.core.product.model.Product
-import java.time.LocalDateTime.now
+import java.time.Instant.now
 
 fun createProduct(
     id: Long? = null,

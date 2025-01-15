@@ -8,7 +8,7 @@ import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE
 import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CAPTURE_SUCCESS
 import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus.CREATE
 import org.duhan.webfluxcoroutinepaymentserver.core.order.service.OrderConfirmCommand
-import java.time.LocalDateTime
+import java.time.Instant
 
 class Order(
     val id: Long? = null,
@@ -20,8 +20,8 @@ class Order(
     var pgStatus: PgStatus = CREATE,
     val pgRetryCount: Int = 0,
     var pgPaymentType: TossPaymentType? = null,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
+    val createdAt: Instant,
+    val updatedAt: Instant,
 ) {
     fun payAuth(command: OrderConfirmCommand) {
         pgPaymentType = command.paymentType

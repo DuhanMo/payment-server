@@ -11,7 +11,7 @@ import org.duhan.webfluxcoroutinepaymentserver.core.product.port.ProductReposito
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.reactive.function.client.WebClientRequestException
-import java.time.LocalDateTime.now
+import java.time.Instant
 import java.util.UUID.randomUUID
 
 private val logger = KotlinLogging.logger {}
@@ -25,7 +25,7 @@ class OrderService(
 ) {
     @Transactional
     suspend fun create(command: OrderCreateCommand): Order {
-        val now = now()
+        val now = Instant.now()
         val productsById = productRepository.findAllById(command.products.map { it.productId }).associateBy { it.id }
         val notExistProductIds = command.products.map { it.productId } - productsById.keys
         require(notExistProductIds.isEmpty()) { "상품 식별자가 존재하지 않습니다. $notExistProductIds" }

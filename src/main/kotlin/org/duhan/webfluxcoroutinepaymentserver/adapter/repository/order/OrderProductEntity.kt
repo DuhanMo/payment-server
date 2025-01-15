@@ -3,7 +3,7 @@ package org.duhan.webfluxcoroutinepaymentserver.adapter.repository.order
 import org.duhan.webfluxcoroutinepaymentserver.core.order.model.OrderProduct
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
-import java.time.LocalDateTime
+import java.time.Instant
 
 @Table("order_product")
 data class OrderProductEntity(
@@ -13,8 +13,8 @@ data class OrderProductEntity(
     val productId: Long,
     val price: Long,
     val quantity: Int,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
+    val createdAt: Instant,
+    val updatedAt: Instant,
 ) {
     constructor(orderProduct: OrderProduct) : this(
         id = orderProduct.id,

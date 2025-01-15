@@ -5,7 +5,7 @@ import org.duhan.webfluxcoroutinepaymentserver.core.order.model.PgStatus
 import org.duhan.webfluxcoroutinepaymentserver.core.order.model.TossPaymentType
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
-import java.time.LocalDateTime
+import java.time.Instant
 
 @Table("orders")
 class OrderEntity(
@@ -19,8 +19,8 @@ class OrderEntity(
     val pgStatus: PgStatus,
     val pgRetryCount: Int,
     val pgPaymentType: TossPaymentType?,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
+    val createdAt: Instant,
+    val updatedAt: Instant,
 ) {
     constructor(order: Order) : this(
         id = order.id,
